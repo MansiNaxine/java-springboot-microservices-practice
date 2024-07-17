@@ -1,0 +1,42 @@
+oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooeureka:
+  client:
+    service-url:
+      defaultzone: http://localhost:8761/eureka/
+server:
+  port: 8010
+spring:
+  application:
+    name: DoctorFind-By-DoctorId-service
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    password: Root@12345
+    url: jdbc:mysql://localhost:3306/doctor
+    username: root
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL8Dialect
+    show-sql: true 
+  
+management:
+  tracing:
+    sampling:
+      probability: 1.0 
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+        exclude: beans,mapping,env
+
+#management:
+# endpoint:
+#     beans:
+#       enabled: true
+
+#management:
+  endpoint:
+    health:
+      show-details: always
+#      show-components: always
+         
+                 
